@@ -1,0 +1,5 @@
+{
+  "name": "SoalGen AI",
+  "description": "AI-powered exam generator that creates valid assessment blueprints (Kisi-Kisi) and questions (Soal) based on Bloom's Taxonomy.",
+  "requestFramePermissions": []
+}
