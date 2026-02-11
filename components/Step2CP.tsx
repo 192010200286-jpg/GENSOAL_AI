@@ -24,33 +24,33 @@ const Step2CP: React.FC<Props> = ({ cpText, setCpText, bloom, setBloom, totalSoa
   return (
     <div className="animate-in slide-in-from-bottom-4 fade-in duration-300">
       <div className="mb-8">
-        <h2 className="text-2xl font-bold text-white mb-2 tracking-tight">
+        <h2 className="text-2xl font-bold text-black mb-2 tracking-tight">
           CP/TP & <span className="text-accent2">Distribusi Kognitif</span>
         </h2>
-        <p className="text-sm text-gray-400">
+        <p className="text-sm text-gray-800 font-medium">
           Masukkan Capaian Pembelajaran dan atur distribusi level Bloom.
         </p>
       </div>
 
       {/* CP Input */}
-      <div className="bg-surface border border-border rounded-xl p-6 mb-4">
-        <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest font-mono mb-4">📖 Capaian Pembelajaran (CP) / KD</h3>
+      <div className="bg-surface border border-border rounded-xl p-6 mb-4 shadow-sm">
+        <h3 className="text-xs font-bold text-gray-700 uppercase tracking-widest font-mono mb-4">📖 Capaian Pembelajaran (CP) / KD</h3>
         <div className="flex flex-col gap-1.5">
-            <label className="text-xs font-semibold text-gray-400 uppercase font-mono">Teks CP atau KD <span className="text-accent">*</span></label>
+            <label className="text-xs font-bold text-gray-900 uppercase font-mono">Teks CP atau KD <span className="text-accent">*</span></label>
             <textarea 
                 value={cpText} 
                 onChange={(e) => setCpText(e.target.value)}
                 rows={4} 
-                className="bg-surface2 border border-border rounded-lg text-sm text-white p-3 focus:border-accent outline-none resize-y min-h-[100px]" 
+                className="bg-surface2 border border-border rounded-lg text-sm text-black font-medium p-3 focus:border-accent outline-none resize-y min-h-[100px] placeholder:text-gray-500" 
                 placeholder="Tempel teks CP dari dokumen kurikulum..."
             />
         </div>
       </div>
 
       {/* Bloom Distribution */}
-      <div className="bg-surface border border-border rounded-xl p-6 mb-6">
+      <div className="bg-surface border border-border rounded-xl p-6 mb-6 shadow-sm">
         <div className="flex items-center justify-between mb-4">
-            <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest font-mono">
+            <h3 className="text-xs font-bold text-gray-700 uppercase tracking-widest font-mono">
                 🧠 Distribusi Taksonomi Bloom
             </h3>
             <span className={`text-xs font-mono font-bold ${currentTotal === totalSoal ? 'text-success' : 'text-danger'}`}>
@@ -61,11 +61,11 @@ const Step2CP: React.FC<Props> = ({ cpText, setCpText, bloom, setBloom, totalSoa
         <div className="grid grid-cols-2 md:grid-cols-6 gap-2">
             {[1,2,3,4,5,6].map((lvl) => {
                 const key = `c${lvl}` as keyof BloomDistribution;
-                const colors = ['text-slate-400', 'text-blue-400', 'text-emerald-400', 'text-yellow-400', 'text-orange-400', 'text-red-400'];
+                const colors = ['text-gray-700', 'text-blue-700', 'text-emerald-700', 'text-yellow-700', 'text-orange-700', 'text-red-700'];
                 return (
                     <div key={lvl} className="bg-surface2 border border-border rounded-lg p-3 text-center">
                         <div className={`font-mono text-lg font-bold mb-1 ${colors[lvl-1]}`}>C{lvl}</div>
-                        <div className="text-[10px] text-gray-500 mb-2 uppercase tracking-wide">
+                        <div className="text-[10px] text-gray-700 font-bold mb-2 uppercase tracking-wide">
                             {['Ingat', 'Paham', 'Terap', 'Analisis', 'Evaluasi', 'Cipta'][lvl-1]}
                         </div>
                         <input 
@@ -73,7 +73,7 @@ const Step2CP: React.FC<Props> = ({ cpText, setCpText, bloom, setBloom, totalSoa
                             min="0"
                             value={bloom[key]}
                             onChange={(e) => handleBloomChange(key, e.target.value)}
-                            className="w-full bg-surface3 border border-border rounded px-2 py-1 text-center font-mono text-sm focus:border-accent outline-none"
+                            className="w-full bg-white border border-border rounded px-2 py-1 text-center font-mono text-sm text-black font-bold focus:border-accent outline-none"
                         />
                     </div>
                 );
@@ -82,7 +82,7 @@ const Step2CP: React.FC<Props> = ({ cpText, setCpText, bloom, setBloom, totalSoa
       </div>
 
       <div className="flex justify-between mt-8">
-        <button onClick={onBack} className="px-5 py-2.5 bg-surface3 text-gray-300 hover:text-white border border-border rounded-lg text-sm font-semibold hover:bg-border transition-colors">
+        <button onClick={onBack} className="px-5 py-2.5 bg-surface3 text-gray-900 hover:text-black border border-border rounded-lg text-sm font-bold hover:bg-slate-200 transition-colors">
             &larr; Kembali
         </button>
         <button 

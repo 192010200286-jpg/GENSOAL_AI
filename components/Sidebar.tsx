@@ -17,8 +17,8 @@ const Sidebar: React.FC<SidebarProps> = ({ currentStep, setStep, stepsCompleted 
   ];
 
   return (
-    <nav className="w-60 min-w-[240px] bg-surface border-r border-border py-6 hidden md:block overflow-y-auto">
-      <div className="px-5 mb-4 text-[10px] text-gray-500 uppercase tracking-widest font-mono">
+    <nav className="w-60 min-w-[240px] bg-white border-r border-border py-6 hidden md:block overflow-y-auto">
+      <div className="px-5 mb-4 text-[10px] text-gray-600 uppercase tracking-widest font-mono font-bold">
         Alur Kerja
       </div>
       
@@ -34,7 +34,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentStep, setStep, stepsCompleted 
               disabled={step.id > stepsCompleted + 1}
               className={`
                 flex items-center gap-3 px-5 py-3 w-full text-left transition-all relative
-                ${isActive ? 'bg-accent/10 border-r-2 border-accent' : 'hover:bg-surface2 border-r-2 border-transparent'}
+                ${isActive ? 'bg-emerald-50 border-r-2 border-accent' : 'hover:bg-slate-50 border-r-2 border-transparent'}
                 ${step.id > stepsCompleted + 1 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
               `}
             >
@@ -45,16 +45,16 @@ const Sidebar: React.FC<SidebarProps> = ({ currentStep, setStep, stepsCompleted 
                     ? 'bg-accent border-accent2 text-white' 
                     : isDone 
                       ? 'bg-success border-success text-white'
-                      : 'bg-surface3 border-border text-gray-400'}
+                      : 'bg-white border-border text-gray-500'}
                 `}
               >
                 {step.id}
               </div>
               <div className="flex-1">
-                <div className={`text-xs font-semibold leading-tight ${isActive ? 'text-white' : 'text-gray-400'}`}>
+                <div className={`text-xs font-bold leading-tight ${isActive ? 'text-accent' : 'text-gray-900'}`}>
                   {step.label}
                 </div>
-                <div className="text-[10px] text-gray-500 font-mono mt-0.5">
+                <div className="text-[10px] text-gray-600 font-mono mt-0.5">
                   {step.sub}
                 </div>
               </div>

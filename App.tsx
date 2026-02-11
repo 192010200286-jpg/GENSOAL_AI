@@ -55,23 +55,23 @@ const App: React.FC = () => {
   const totalSoal = contextData.jml_pg + contextData.jml_uraian + contextData.jml_isian;
 
   return (
-    <div className="flex h-screen bg-bg text-gray-100 font-sans selection:bg-accent/30 selection:text-white">
+    <div className="flex h-screen bg-gradient-to-br from-white via-emerald-50 to-white text-black font-sans selection:bg-emerald-500/30 selection:text-emerald-900">
       {/* Background Grid Pattern */}
       <div className="fixed inset-0 pointer-events-none z-0 opacity-[0.03]" 
-           style={{ backgroundImage: 'linear-gradient(#3b82f6 1px, transparent 1px), linear-gradient(90deg, #3b82f6 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
+           style={{ backgroundImage: 'linear-gradient(#059669 1px, transparent 1px), linear-gradient(90deg, #059669 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
       </div>
 
       <Sidebar currentStep={step} setStep={setStep} stepsCompleted={stepsCompleted} />
 
       <main className="flex-1 flex flex-col h-full relative z-10 overflow-hidden">
         {/* Header */}
-        <header className="h-16 border-b border-border bg-bg/80 backdrop-blur-md flex items-center justify-between px-6 shrink-0 z-20">
-          <div className="font-mono font-bold text-lg text-accent2 flex items-center gap-2">
-            Soal<span className="text-white font-light">Gen</span> <span className="text-[10px] text-gray-500 bg-surface3 px-2 py-0.5 rounded border border-border">AI Beta</span>
+        <header className="h-16 border-b border-border bg-white/80 backdrop-blur-md flex items-center justify-between px-6 shrink-0 z-20 shadow-sm">
+          <div className="font-mono font-bold text-lg text-accent flex items-center gap-2">
+            Soal<span className="text-black font-light">Gen</span> <span className="text-[10px] text-gray-800 bg-slate-100 px-2 py-0.5 rounded border border-slate-300">AI Beta</span>
           </div>
           <div className="flex items-center gap-3">
-            <span className="text-[10px] font-mono text-gray-500 uppercase tracking-wider">{contextData.kurikulum}</span>
-            <div className="h-4 w-[1px] bg-border"></div>
+            <span className="text-[10px] font-mono text-gray-800 uppercase tracking-wider font-bold">{contextData.kurikulum}</span>
+            <div className="h-4 w-[1px] bg-gray-400"></div>
             <span className="text-xs font-bold text-accent bg-accent/10 border border-accent/20 px-3 py-1 rounded">Step {step}/5</span>
           </div>
         </header>
@@ -128,6 +128,13 @@ const App: React.FC = () => {
             )}
           </div>
         </div>
+
+        {/* Footer */}
+        <footer className="h-8 border-t border-border bg-white/80 backdrop-blur-md flex items-center justify-center shrink-0 z-20">
+            <span className="text-[10px] text-gray-700 font-mono tracking-wider">
+                Created By : <span className="text-accent2 font-bold">@eko-min1banyuwangi2026</span>
+            </span>
+        </footer>
       </main>
     </div>
   );
